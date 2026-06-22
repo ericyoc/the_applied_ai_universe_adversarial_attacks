@@ -1,8 +1,8 @@
 # The Applied AI Universe: Adversarial Attacks Coding Guide
 ### *Breaking Every Model in the AI Universe*
 
-[![Open Classical Notebook In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Classical.ipynb)
-[![Open Quantum Notebook In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Hybrid_Quantum.ipynb)
+[![Open Classical Notebook In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Classical.ipynb)
+[![Open Quantum Notebook In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Hybrid_Quantum.ipynb)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
 [![ART](https://img.shields.io/badge/ART-adversarial--robustness--toolbox-red.svg)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
@@ -23,9 +23,10 @@ This repository is **Book 2** of *The Applied AI Universe* series. Where Book 1 
 
 Each cell follows a consistent loop: **reconstruct the Book 1 victim → run the attack → measure clean vs. adversarial performance → score it → visualize → preview the mitigation** (which Book 3 delivers in full). Results and a master leaderboard are written to Google Drive.
 
-**Classical Notebook** attacks 27 victims across Modules 1–6: symbolic systems, classical ML, neural networks, deep learning, and generative models.
-
-**Quantum Notebook** attacks 6 hybrid/quantum victims on the `default.qubit` simulator: QAOA, VQC, Hybrid QNN, VQE, Quantum-Kernel SVM, and QGAN.
+| Notebook | Coverage |
+|---|---|
+| **`Adversarial_Attacks_Classical.ipynb`** | 27 victims across Modules 1–6: symbolic AI, classical ML, neural networks, deep learning, generative models |
+| **`Adversarial_Attacks_Hybrid_Quantum.ipynb`** | 6 hybrid/quantum victims on the `default.qubit` simulator: QAOA, VQC, Hybrid QNN, VQE, Quantum-Kernel SVM, QGAN |
 
 ---
 
@@ -41,13 +42,13 @@ This repository is intended for **educational and defensive-research purposes on
 
 ### Classical Adversarial Attacks (Modules 1–6)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Classical.ipynb)
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Classical.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Classical.ipynb)
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Classical.ipynb)
 
 ### Hybrid & Quantum Adversarial Attacks
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Hybrid_Quantum.ipynb)
-[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Book2_Adversarial_Attacks_Hybrid_Quantum.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Hybrid_Quantum.ipynb)
+[![nbviewer](https://img.shields.io/badge/render-nbviewer-orange.svg)](https://nbviewer.org/github/ericyoc/the_applied_ai_universe_adversarial_attacks/blob/main/Adversarial_Attacks_Hybrid_Quantum.ipynb)
 
 ---
 
@@ -114,29 +115,29 @@ Every victim is reconstructed faithfully from Book 1 (dataset and architecture n
 
 ## Attack Catalog — Quantum Notebook
 
-| Victim | Book 1 Model | Attack |
-|---|---|---|
-| QAOA | MaxCut on a 4-cycle | Parameter poisoning |
-| VQC | AngleEmbedding + StronglyEntanglingLayers | Quantum FGSM (input gradient) |
-| Hybrid QNN | BasicEntanglerLayers | FGSM |
-| VQE | Ising / H₂ Hamiltonian | Parameter-noise injection |
-| Quantum-Kernel SVM | Quantum kernel + SVC | Kernel-boundary evasion |
-| QGAN | Variational generator | Generator weight poisoning |
+| Victim | Book 1 Model | Attack | Result |
+|---|---|---|---|
+| QAOA | MaxCut on a 4-cycle | Parameter poisoning | cut 2.77 → 2.00 / 4.0 |
+| VQC | AngleEmbedding + StronglyEntanglingLayers | Quantum FGSM (input gradient) | acc 0.89 → 0.78 |
+| Hybrid QNN | BasicEntanglerLayers | FGSM | acc 0.56 → 0.38 |
+| VQE | Ising / H₂ Hamiltonian | Parameter-noise injection | E −1.414 → −0.985 |
+| Quantum-Kernel SVM | Quantum kernel + SVC | Kernel-boundary evasion | acc 0.70 → 0.05 |
+| QGAN | Variational generator | Generator weight poisoning | gen μ 0.47 → 0.38 |
 
 ---
 
 ## Metrics & Visualization
 
-Every attack reports a standard **Scorecard**: clean accuracy, robust (post-attack) accuracy, attack-success rate (ASR), and L∞/L₂ perturbation norms. Image attacks render a three-row figure — **CLEAN** (green, correctly classified), **ADVERSARIAL** (red, fooled), and **PERTURBATION** (amplified) — so the imperceptible-yet-fooling nature of L∞ attacks is visible. Each cell closes with a **Mitigation Preview** pointing to its Book 3 defense.
+Every attack reports a standard **Scorecard**: clean accuracy, robust (post-attack) accuracy, attack-success rate (ASR), and L∞/L₂ perturbation norms. Image attacks render a three-row figure — **CLEAN** (green, correctly classified), **ADVERSARIAL** (red, fooled), and **PERTURBATION** (amplified) — so the imperceptible-yet-fooling nature of L∞ attacks is visible. Parameter/weight attacks (QAOA, VQE, QGAN) report `NaN` for L∞/L₂ because there is no input-space perturbation to measure. Each cell closes with a **Mitigation Preview** pointing to its Book 3 defense.
 
 ## Drive Outputs
 
 ```
-AI_Universe_Adversarial_Attacks/            # classical figures + leaderboard_attacks_classical.csv
-AI_Universe_Adversarial_Attacks_Quantum/    # quantum figures + leaderboard_attacks_quantum.csv
+AI_Universe_Adversarial_Attacks/            # classical figures + leaderboard_classical.csv
+AI_Universe_Adversarial_Attacks_Quantum/    # quantum figures + leaderboard_quantum.csv
 ```
 
-Victim weights are reconstructed from Book 1 code and cached to Drive on first run.
+Victim weights are reconstructed from Book 1 code and cached to Drive on first run. Run the **engine/setup cell at the top of each notebook once per session** — it defines `Scorecard`, `log`, `savefig`, and the Drive paths that every attack cell uses.
 
 ## Technologies Used
 
