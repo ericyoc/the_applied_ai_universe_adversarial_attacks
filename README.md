@@ -164,5 +164,3 @@ Victim weights are reconstructed from Book 1 code and cached to Drive on first r
 **Topics:** `adversarial-attacks` `adversarial-examples` `machine-learning-security` `fgsm` `pgd` `data-poisoning` `membership-inference` `model-evasion` `tensorflow` `pennylane` `quantum-machine-learning` `ai-security` `adversarial-robustness-toolbox` `huggingface` `lora` `backdoor-attacks` `red-team` `mlsecops` `cybersecurity` `educational`
 
 ---
-
-*Built for CSC-3201 — California Polytechnic State University, San Luis Obispo*
